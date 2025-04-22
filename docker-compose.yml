@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    container_name: nest-api
+    ports:
+      - '3000:3000'
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=db_watches
+      - DATABASE_NAME=db_watches
+      - JWT_SECRET=jwt-secret
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run start:debug
+
+  db:
+    image: postgres:15
+    container_name: nest-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: db_watches
+      POSTGRES_DB: db_watches
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
