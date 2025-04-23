@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, PrimaryColumn } from "typeorm";
-import { TipoUser } from "./TipoUser.enum";
-import { Sexo } from "./sexo.enum";
+import { TipoUser } from "../enums/TipoUser.enum";
+import { Sexo } from "../enums/sexo.enum";
 
 @Entity('user')
 export class UserEntity {

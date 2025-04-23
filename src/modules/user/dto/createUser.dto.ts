@@ -7,9 +7,9 @@ import {
     IsEnum,
   } from 'class-validator';
   import { Type } from 'class-transformer';
-  import { TipoUser } from '../TipoUser.enum';
+  import { TipoUser } from '../enums/TipoUser.enum';
 import { PrimaryGeneratedColumn } from 'typeorm';
-import { Sexo } from '../sexo.enum';
+import { Sexo } from '../enums/sexo.enum';
   
   export class CreateUserDto {
 

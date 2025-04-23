@@ -1,6 +1,7 @@
-import { Controller, Delete, Get, Post, Put, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/modules/config/auth/jwt-auth.guard';
+import { Body, Controller, Delete, Get, Post, Put, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth/jwt-auth.guard';
 import { UserService } from '../service/user.service';
+import { CreateUserDto } from '../dto/createUser.dto';
 
 @Controller('user')
 export class UserController {
@@ -10,17 +11,17 @@ export class UserController {
     @Get()
     @UseGuards(JwtAuthGuard)
     findAll() {
-        return 'Listando todos os clientes';
+        return this.userService.findAll();
     }
     @Get(':id')
     @UseGuards(JwtAuthGuard)
-    findOne() {
-        return 'Listando um cliente';
+    findOne(@Body() userDto: any) {
+        return this.userService.findByName(userDto.nome);
     }
     @Post()
     @UseGuards(JwtAuthGuard)
-    create() {
-        return 'Criando um cliente';
+    create(@Body() createuserdto: CreateUserDto) {
+        return this.userService.create(createuserdto);
     }
     @Put(':id')
     @UseGuards(JwtAuthGuard)

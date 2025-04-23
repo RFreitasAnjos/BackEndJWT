@@ -1,5 +1,5 @@
-import { Sexo } from '../sexo.enum';
-import { TipoUser } from '../TipoUser.enum';
+import { Sexo } from '../enums/sexo.enum';
+import { TipoUser } from '../enums/TipoUser.enum';
 
 export class UserDto {
   id: string;

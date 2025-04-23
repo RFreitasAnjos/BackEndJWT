@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UserDto } from '../dto/user.dto';
-import { UserEntity } from '../user.entity';
+import { UserEntity } from '../entity/user.entity';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from '../dto/createUser.dto';
 import { plainToInstance } from 'class-transformer';

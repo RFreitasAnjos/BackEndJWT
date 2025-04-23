@@ -3,7 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './modules/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from './modules/config/auth/auth.module';
+import { AuthModule } from './auth/guards/types/auth.module';
+import { ProductsModule } from './modules/produt/product.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -18,7 +19,9 @@ import { AuthModule } from './modules/config/auth/auth.module';
     autoLoadEntities: true,
   }),
     UserModule,
-  AuthModule],
+  AuthModule,
+  ProductsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
